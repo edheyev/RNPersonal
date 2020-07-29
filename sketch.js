@@ -9,6 +9,7 @@ let shadowinc = 0.1;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+	canvas.style('z-index', '-1');
 	stroke(0)
 	strokeWeight(res/10);
 	smooth();
