@@ -6,10 +6,13 @@ let cols, rows;
 var shapes = [];
 let shadowposx, shadowposy,shadowlimx, shadowlimy, shadowincy;
 let shadowinc = 0.1;
+var canvas;
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);
+	canvas = createCanvas(windowWidth, windowHeight);
+	canvas.position(0, 0);
 	canvas.style('z-index', '-1');
+
 	stroke(0)
 	strokeWeight(res/10);
 	smooth();
