@@ -1,5 +1,5 @@
 let inc = 0.1;
-let scl = 200;
+let scl = 50;
 let cols, rows;
 let zoff = 0;
 function setup() {
