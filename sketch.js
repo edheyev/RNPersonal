@@ -11,7 +11,8 @@ function setup() {
 
 function draw() {
   background("#003840");
-  ellipse(mouseX, mouseY, 20, 20);
+  fill(" #f1bd33 ");
+  ellipse(mouseX, mouseY, 500, 500);
   let yoff = 0;
   for (let y = 0; y < cols + 1; y++) {
     let xoff = 0;
