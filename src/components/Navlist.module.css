@@ -1,0 +1,27 @@
+.vertical {
+  width: 200px; /* Set a width if you like */
+  float: right;
+}
+
+.vertical a {
+  background-color: rgb(212, 31, 31); /* Grey background color */
+  color: rgb(255, 255, 255); /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical a:hover {
+  color: rgb(0, 0, 0);
+  background-color: greenyellow;
+}
+
+.vertical a.active {
+  background-color: #04aa6d; /* Add a green color to the "active/current" link */
+}
+
+@media only screen and (max-width: 600px) {
+  .vertical {
+    display: none !important;
+  }
+}
