@@ -17,7 +17,7 @@ const Science = () => {
         interaction of egocentric and allocentric spatial representations has
         been a focus for my research at MSc and PhD level, using virtual reality
         technology and psychophysical methods to investigate these topics from a
-        cognitive psychological perspective. My PhD thesis which focusses on
+        cognitive psychological perspective. My PhD thesis, which focusses on
         these subjects is available online{" "}
         <a href=" https://etheses.whiterose.ac.uk/29943/">here.</a>
       </p>
