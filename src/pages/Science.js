@@ -25,8 +25,8 @@ const Science = () => {
       <h2>Publications</h2>
       <ul>
         <li>
-          Heywood-Everett, E., Baker, D., & Hartley, T. (Under review). Testing
-          the precision of spatial memory representations using a virtual
+          Heywood-Everett, E., Baker, D., & Hartley, T. (2021). Testing the
+          precision of spatial memory representations using a virtual
           change-detection task: Effects of viewpoint change. Journal of
           Cognitive Psychology.
         </li>
