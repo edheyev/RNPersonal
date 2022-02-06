@@ -4,7 +4,12 @@ import styles from "./Nav.module.css";
 
 const Nav = () => {
   return (
-    <div className={[styles.appHeader]}>
+    <div
+      className={[
+        styles.appHeader,
+        { backgroundColor: "red", flexDirection: "row" },
+      ]}
+    >
       <div className={styles.homebutton}>
         <Link to="/" className={styles.appName}>
           <h1>EH-E</h1>

@@ -1,11 +1,19 @@
 import React from "react";
+import SocMedBar from "../components/SocMedBar";
 
 const Contact = () => {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
       <h1>Contact me</h1>
-      <p>email</p>
-      <p>SOC MEDIA BAR</p>
+
+      <SocMedBar />
     </div>
   );
 };

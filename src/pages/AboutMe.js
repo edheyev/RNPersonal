@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../App.module.css";
+import BckgrndSketch from "../components/BckgrndSketch";
+import SocMedBar from "../components/SocMedBar";
 
 const AboutMe = () => {
   const aboutMeText =
@@ -8,8 +10,11 @@ const AboutMe = () => {
   return (
     <div>
       <h1 className={styles.ahead}>About</h1>
-      <pre className={styles.pre_text}>{aboutMeText}</pre>
-      <p>SOC MEDIA BAR</p>
+      <div style={{ backgroundColor: "pink" }}>
+        <pre className={styles.pre_text}>{aboutMeText}</pre>
+      </div>
+      <SocMedBar />
+      <BckgrndSketch />
     </div>
   );
 };

@@ -45,7 +45,7 @@ const Code = () => {
           implementation of the google maps API for location services.
         </li>
       </ul>
-      <h2>Psychology experiments</h2>
+      {/* <h2>Psychology experiments</h2>
       <ul>
         <li>1</li>
         <li>2</li>
@@ -54,7 +54,7 @@ const Code = () => {
       <ul>
         <li>1</li>
         <li>2</li>
-      </ul>
+      </ul> */}
       <p>
         I have also experimented with making <Link to="Art">art</Link> with
         code.

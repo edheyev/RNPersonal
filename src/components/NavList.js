@@ -14,9 +14,9 @@ const NavList = () => {
       <Link to="/code" className={styles.navlistItem}>
         Code
       </Link>
-      <Link to="/art" className={styles.navlistItem}>
+      <a href="https://edheyev.myportfolio.com/" className={styles.navlistItem}>
         Art
-      </Link>
+      </a>
       <Link to="/contact" className={styles.navlistItem}>
         Contact
       </Link>

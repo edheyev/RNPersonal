@@ -1,8 +1,9 @@
 .appHeader {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  /* grid-template-columns: 1fr 3fr 1fr; */
   /* text-align: center; */
-  /* color: white; */
+  /* backgroundcolor: white; */
+  color: "red";
   /* margin: 0; */
   border: 1px;
   border-color: black;
