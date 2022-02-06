@@ -4,6 +4,7 @@ import Flow from "../components/Flow";
 import FlowGarden from "../components/FlowGarden";
 import NavList from "../components/NavList";
 import SocMedBar from "../components/SocMedBar";
+import SpikeFlow from "../components/SpikeFlow";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -18,7 +19,7 @@ const HomePage = () => {
         </div>
         <NavList className={styles.homePageNavList} />
       </div>
-      <FlowGarden />
+      <SpikeFlow />
       {/* <BckgrndSketch /> */}
     </div>
   );

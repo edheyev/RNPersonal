@@ -52,7 +52,7 @@ function FlowGarden() {
         let index = (x + y * p5.windowHeight) * 4;
 
         let noise = p5.noise(xoff, yoff, zoff);
-
+        let mV = p5.createVector(p5.mouseX, p5.mouseY); //noise * (Math.PI / 180));
         let angle = noise * 360;
         angle = angle * (Math.PI / 180);
         // v = p5.Vector.fromAngle(noise * (Math.PI / 180));
