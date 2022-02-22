@@ -73,45 +73,49 @@ function SpikeFlow() {
           p5.stroke("#9d0208");
           p5.rotate(v.heading());
           p5.line(0, 0, 0, 30);
-        } else if (distance > 250 && distance < 300) {
-          p5.stroke("#d00000");
+          // } else if (distance > 250 && distance < 300) {
+          //   p5.stroke("#d00000");
 
-          let dV = mV.sub(bV).normalize();
-          // dV = dV / 1;
-          // let combV = dV.add(v);
-          // combV.mult(distance);
-          p5.rotate(dV.heading());
-          // p5.rect(0, 0, scl / 2, scl);
+          //   let dV = mV.sub(bV).normalize();
+          //   // dV = dV / 1;
+          //   // let combV = dV.add(v);
+          //   // combV.mult(distance);
+          //   p5.rotate(dV.heading());
 
-          p5.line(0, 0, 0, 30);
-        } else if (distance > 200 && distance < 250) {
-          p5.stroke("#e85d04");
+          //   // p5.rect(0, 0, scl / 2, scl);
 
-          let dV = mV.sub(bV).normalize();
-          // dV = dV / 1;
-          // let combV = dV.add(v);
-          // combV.mult(distance);
-          p5.rotate(dV.heading());
-          // p5.rect(0, 0, scl / 2, scl);
+          //   p5.line(0, 0, 0, 30);
+          // } else if (distance > 200 && distance < 250) {
+          //   p5.stroke("#e85d04");
 
-          p5.line(0, 0, 0, 30);
-        } else if (distance > 150 && distance < 200) {
-          p5.stroke("#faa307");
+          //   let dV = mV.sub(bV).normalize();
+          //   // dV = dV / 1;
+          //   // let combV = dV.add(v);
+          //   // combV.mult(distance);
+          //   p5.rotate(dV.heading());
+          //   // p5.rect(0, 0, scl / 2, scl);
 
-          let dV = mV.sub(bV).normalize();
-          // dV = dV / 1;
-          // let combV = dV.add(v);
-          // combV.mult(distance);
-          p5.rotate(dV.heading());
-          // p5.rect(0, 0, scl / 2, scl);
+          //   p5.line(0, 0, 0, 30);
+          // } else if (distance > 150 && distance < 200) {
+          //   p5.stroke("#faa307");
 
-          p5.line(0, 0, 0, 30);
+          //   let dV = mV.sub(bV).normalize();
+          //   // dV = dV / 1;
+          //   // let combV = dV.add(v);
+          //   // combV.mult(distance);
+          //   p5.rotate(dV.heading());
+          //   // p5.rect(0, 0, scl / 2, scl);
+
+          //   p5.line(0, 0, 0, 30);
         } else {
           p5.stroke("#ffba08");
 
           let dV = mV.sub(bV).normalize();
           // dV = dV / 1;
-          // let combV = dV.add(v);
+          dV.x = p5.map(distance, 0, 300, dV.x, v.x);
+          dV.y = p5.map(distance, 0, 300, dV.y, v.y);
+
+          // let combV = v.add(dv);
           // combV.mult(distance);
           p5.rotate(dV.heading());
           // p5.rect(0, 0, scl / 2, scl);

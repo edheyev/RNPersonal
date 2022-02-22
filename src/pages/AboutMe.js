@@ -9,7 +9,9 @@ const AboutMe = () => {
 
   return (
     <div>
-      <h1 className={styles.ahead}>About</h1>
+      <div style={{ backgroundColor: "pink" }}>
+        <h1 className={styles.ahead}>About</h1>
+      </div>
       <div style={{ backgroundColor: "pink" }}>
         <pre className={styles.pre_text}>{aboutMeText}</pre>
       </div>

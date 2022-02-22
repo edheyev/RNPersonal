@@ -10,7 +10,13 @@ import styles from "./HomePage.module.css";
 const HomePage = () => {
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+        }}
+      >
         <div>
           <h1 className={styles.textShad}>
             My name is Ed. I like coding, science and art.

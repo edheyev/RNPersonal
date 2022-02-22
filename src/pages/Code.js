@@ -56,8 +56,17 @@ const Code = () => {
         <li>2</li>
       </ul> */}
       <p>
-        I have also experimented with making <Link to="Art">art</Link> with
-        code.
+        I have also experimented with making{" "}
+        <a
+          target="_blank"
+          href="https://edheyev.myportfolio.com/"
+          style={{
+            textalign: "center",
+          }}
+        >
+          art
+        </a>{" "}
+        with code.
       </p>
       <h2>My code elsewhere</h2>
       <ul>
