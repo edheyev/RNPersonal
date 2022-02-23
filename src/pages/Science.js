@@ -8,6 +8,9 @@ const Science = () => {
         flexDirection: "column",
         padding: 20,
         margin: 15,
+        backgroundColor: "#96d6c8",
+        width: "100%",
+        height: "100%",
       }}
     >
       <h1>Science</h1>

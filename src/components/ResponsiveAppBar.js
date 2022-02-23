@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useNavigate, Link } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 
-const pages = ["About me", "Code", "Contact", "Home", "Science"];
+const pages = ["About me", "Science", "Code", "Contact"];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -94,6 +94,16 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              {pages.map((setting) => (
+                <MenuItem
+                  key={setting}
+                  onClick={(ev) => {
+                    handleCloseUserMenu(ev);
+                  }}
+                >
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
               <MenuItem
                 key="artlink"
                 onClick={(ev) => {
@@ -112,16 +122,6 @@ const ResponsiveAppBar = () => {
                   Art
                 </a>
               </MenuItem>
-              {pages.map((setting) => (
-                <MenuItem
-                  key={setting}
-                  onClick={(ev) => {
-                    handleCloseUserMenu(ev);
-                  }}
-                >
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
             </Menu>
           </Box>
         </Toolbar>

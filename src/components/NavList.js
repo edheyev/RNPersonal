@@ -14,12 +14,13 @@ const NavList = () => {
       <Link to="/code" className={styles.navlistItem}>
         Code
       </Link>
-      <a href="https://edheyev.myportfolio.com/" className={styles.navlistItem}>
-        Art
-      </a>
+
       <Link to="/contact" className={styles.navlistItem}>
         Contact
       </Link>
+      <a href="https://edheyev.myportfolio.com/" className={styles.navlistItem}>
+        Art
+      </a>
     </div>
   );
 };
