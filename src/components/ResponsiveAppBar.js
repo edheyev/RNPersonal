@@ -57,8 +57,14 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl" style={{ backgroundColor: "black" }}>
+    <AppBar
+      position="static"
+      style={{ backgroundColor: "black", width: "100%" }}
+    >
+      <Container
+        maxWidth="xl"
+        style={{ backgroundColor: "black", width: "100%" }}
+      >
         <Toolbar disableGutters>
           <Link to="/" style={{ textDecoration: "none" }}>
             <Typography
@@ -67,7 +73,7 @@ const ResponsiveAppBar = () => {
               component="div"
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              E H-E
+              <h1 style={{ textDecoration: "none", color: "white" }}>E H-E</h1>
             </Typography>
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}></Box>

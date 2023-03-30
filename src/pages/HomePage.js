@@ -23,7 +23,7 @@ const HomePage = () => {
           </h1>
           {/* <SocMedBar /> */}
         </div>
-        <NavList className={styles.homePageNavList} />
+        {/* <NavList className={styles.homePageNavList} /> */}
       </div>
       <SpikeFlow />
       {/* <BckgrndSketch /> */}
