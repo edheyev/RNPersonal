@@ -9,24 +9,15 @@ import styles from "./HomePage.module.css";
 
 const HomePage = () => {
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-      >
-        <div>
-          <h1 className={styles.textShad}>
-            My name is Ed. I like coding, science and art.
-          </h1>
-          {/* <SocMedBar /> */}
-        </div>
-        {/* <NavList className={styles.homePageNavList} /> */}
-      </div>
-      <SpikeFlow />
-      {/* <BckgrndSketch /> */}
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1 className={styles.textShad}>
+          My name is Ed. I like coding, science, and art.
+        </h1>
+      </header>
+      <main className={styles.mainContent}>
+        <SpikeFlow />
+      </main>
     </div>
   );
 };

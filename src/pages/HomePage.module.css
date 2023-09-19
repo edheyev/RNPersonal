@@ -8,3 +8,26 @@
   text-shadow: 4px 3px 2px #000000;
   font-size: 40px;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textShad {
+  /* Your existing styles for textShad */
+}
