@@ -18,13 +18,13 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/science" element={<Science />} />
           <Route path="/code" element={<Code />} />
-          {/* <Route
+          <Route
             path="/art"
             component={() => {
               window.location.href = "https://edheyev.myportfolio.com/";
               return null;
             }}
-          /> */}
+          />
           <Route path="/about_me" element={<AboutMe />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

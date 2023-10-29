@@ -26,12 +26,25 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = (e) => {
     const selectedPage = e.target.textContent;
 
-    if (pages.includes(selectedPage)) {
+    // Updated for homepage navigation
+    if (selectedPage === "Home") {
+      navigate("/"); // Changed from "/home" to "/"
+    } else if (pages.includes(selectedPage)) {
       navigate(`/${selectedPage.toLowerCase().replace(/ /g, "_")}`);
     }
 
     setAnchorElUser(null);
   };
+
+  // const handleCloseUserMenu = (e) => {
+  //   const selectedPage = e.target.textContent;
+
+  //   if (pages.includes(selectedPage)) {
+  //     navigate(`/${selectedPage.toLowerCase().replace(/ /g, "_")}`);
+  //   }
+
+  //   setAnchorElUser(null);
+  // };
 
   return (
     <AppBar
@@ -67,15 +80,14 @@ const ResponsiveAppBar = () => {
                 <Typography>{page}</Typography>
               </MenuItem>
             ))}
-            <MenuItem key="artlink">
-              <a
-                href="https://edheyev.myportfolio.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                Art
-              </a>
+            <MenuItem
+              key="artlink"
+              onClick={() => {
+                window.open("https://edheyev.myportfolio.com/", "_blank");
+                setAnchorElUser(null);
+              }}
+            >
+              <Typography>Art</Typography>
             </MenuItem>
           </Menu>
         </Toolbar>
