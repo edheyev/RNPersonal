@@ -1,58 +1,35 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-// import MenuIcon from "@mui/icons-material";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import { useNavigate, Link } from "react-router-dom";
+import {
+  AppBar,
+  Box,
+  Container,
+  IconButton,
+  MenuItem,
+  Menu,
+  Toolbar,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import { AiOutlineMenu } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import React from "react";
 
-const pages = ["About me", "Science", "Code", "Contact"];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Home", "About me", "Science", "Code", "Contact"];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const navigate = useNavigate();
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   const handleCloseUserMenu = (e) => {
-    console.log(e.target.textContent);
+    const selectedPage = e.target.textContent;
 
-    if (e.target.textContent === "Home") {
-      navigate("/");
-    } else if (e.target.textContent === "About me") {
-      navigate("/about_me");
+    if (pages.includes(selectedPage)) {
+      navigate(`/${selectedPage.toLowerCase().replace(/ /g, "_")}`);
     }
-    if (e.target.textContent === "Science") {
-      navigate("/science");
-    }
-    if (e.target.textContent === "Code") {
-      navigate("/code");
-    }
-    if (e.target.textContent === "Art") {
-      navigate("/art");
-    }
-    if (e.target.textContent === "Contact") {
-      navigate("/contact");
-    }
+
     setAnchorElUser(null);
   };
 
@@ -61,78 +38,50 @@ const ResponsiveAppBar = () => {
       position="static"
       style={{ backgroundColor: "black", width: "100%" }}
     >
-      <Container
-        maxWidth="xl"
-        style={{ backgroundColor: "black", width: "100%" }}
-      >
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/" style={{ textDecoration: "none" }}>
             <Typography
               variant="h6"
-              noWrap
               component="div"
-              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+              sx={{ display: { xs: "none", md: "flex" } }}
             >
-              <h1 style={{ textDecoration: "none", color: "white" }}>E H-E</h1>
+              <h1 style={{ color: "white" }}>E H-E</h1>
             </Typography>
           </Link>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}></Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <AiOutlineMenu style={{ color: "red", size: "50px" }} />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {pages.map((setting) => (
-                <MenuItem
-                  key={setting}
-                  onClick={(ev) => {
-                    handleCloseUserMenu(ev);
-                  }}
-                >
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-              <MenuItem
-                key="artlink"
-                onClick={(ev) => {
-                  handleCloseUserMenu(ev);
-                }}
-              >
-                <a
-                  target="_blank"
-                  href="https://edheyev.myportfolio.com/"
-                  style={{
-                    textalign: "center",
-                    textDecoration: "none",
-                    color: "black",
-                  }}
-                >
-                  Art
-                </a>
+          <Box sx={{ flexGrow: 1 }} />
+          <Tooltip title="Open settings">
+            <IconButton onClick={handleOpenUserMenu}>
+              <AiOutlineMenu style={{ color: "red" }} />
+            </IconButton>
+          </Tooltip>
+          <Menu
+            sx={{ mt: "45px" }}
+            anchorEl={anchorElUser}
+            keepMounted
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {pages.map((page) => (
+              <MenuItem key={page} onClick={handleCloseUserMenu}>
+                <Typography>{page}</Typography>
               </MenuItem>
-            </Menu>
-          </Box>
+            ))}
+            <MenuItem key="artlink">
+              <a
+                href="https://edheyev.myportfolio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                Art
+              </a>
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
+
 export default ResponsiveAppBar;

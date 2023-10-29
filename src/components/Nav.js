@@ -41,6 +41,17 @@ const Nav = () => {
                 Art
               </Link>
             </li>
+
+            <li>
+              <a
+                href="https://edheyev.myportfolio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.navlistItem}
+              >
+                Arty
+              </a>
+            </li>
             <li>
               <Link to="/contact" className={styles.navlistItem}>
                 Contact

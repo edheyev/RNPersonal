@@ -26,10 +26,11 @@ const NavList = () => {
 
       <a
         href="https://edheyev.myportfolio.com/"
+        target="_blank"
+        rel="noopener noreferrer"
         className={styles.navlistItem}
-        onClick={() => openInNewTab("https://edheyev.myportfolio.com/")}
       >
-        Art
+        Arty
       </a>
     </div>
   );
