@@ -18,7 +18,7 @@ const SocMedBar = () => {
       </IconButton>
       <IconButton
         aria-label="LinkedIn"
-        href="https://www.linkedin.com/in/yourprofile"
+        href="https://www.linkedin.com/in/edheyev/"
         target="_blank"
         rel="noopener noreferrer"
         color="primary"
@@ -26,17 +26,8 @@ const SocMedBar = () => {
         <FaLinkedin />
       </IconButton>
       <IconButton
-        aria-label="Twitter"
-        href="https://twitter.com/yourprofile"
-        target="_blank"
-        rel="noopener noreferrer"
-        color="primary"
-      >
-        <FaTwitter />
-      </IconButton>
-      <IconButton
         aria-label="Email"
-        href="mailto:your.email@example.com"
+        href="mailto:edheyev@gmail.com"
         color="primary"
       >
         <FaEnvelope />
