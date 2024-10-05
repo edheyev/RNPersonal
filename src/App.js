@@ -1,13 +1,15 @@
-import styles from "./App.module.css";
-import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
-import Nav from "./components/Nav";
+// import styles from "./App.module.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Nav from "./components/Nav";
 import HomePage from "./pages/HomePage";
 import Science from "./pages/Science";
-import Code from "./pages/Code";
-import Art from "./pages/Art";
-import AboutMe from "./pages/AboutMe";
+import Projects from "./pages/Projects";
+import Wheel from "./pages/Wheel";
+// import Art from "./pages/Art";
+import AboutMe from "./pages/About";
 import Contact from "./pages/Contact";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/science" element={<Science />} />
-          <Route path="/code" element={<Code />} />
+          <Route path="/projects" element={<Projects />} />
           <Route
             path="/art"
             component={() => {
@@ -25,9 +27,11 @@ function App() {
               return null;
             }}
           />
-          <Route path="/about_me" element={<AboutMe />} />
+          <Route path="/about" element={<AboutMe />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/wheel" element={<Wheel />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

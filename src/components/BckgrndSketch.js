@@ -2,12 +2,9 @@ import React, { useEffect } from "react";
 import Sketch from "react-p5";
 import axios from "axios";
 
-let centerX;
-let centerY;
-let eyes = [];
-let t = 0;
-
 const BckgrndSketch = () => {
+  let eyes = [];
+  let t = 0;
   useEffect(() => {
     axios
       .get("http://palett.es/API/v1/palette/monochrome/between/0.55/0.99")
@@ -22,8 +19,6 @@ const BckgrndSketch = () => {
       .parent(canvasParentRef);
     canvas.position(0, 0);
     canvas.style("z-index", "-1");
-    centerX = p5.windowWidth / 2;
-    centerY = p5.windowHeight / 2;
 
     p5.background(150);
 

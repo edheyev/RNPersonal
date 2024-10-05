@@ -1,50 +1,40 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Sketch from "react-p5";
-import axios from "axios";
-import { LineShareButton } from "react-share";
-import { SiTampermonkey } from "react-icons/si";
 
-let centerX;
-let centerY;
-let scl = 25;
-let increment = 0.1;
-let cols = 0;
-let rows = 0;
-let zoff = 0;
-let def = 10;
-let blobAr = [];
-let blobAr2 = [];
-let blobception = 3;
+const SpikeFlow = () => {
+  // Configuration Variables
+  const scl = 25; // Scale
+  const increment = 0.1; // Noise increment
+  let zoff = 0; // Z-offset for noise
 
-function SpikeFlow() {
+  // Responsive columns and rows
+  let cols;
+  let rows;
+
   const setup = (p5, canvasParentRef) => {
     const canvas = p5
       .createCanvas(p5.windowWidth, p5.windowHeight)
       .parent(canvasParentRef);
-    canvas.position(0, 0);
-    // p5.noStroke();
-    canvas.style("z-index", "-1");
-    centerX = p5.windowWidth / 2;
-    centerY = p5.windowHeight / 2;
+    p5.background("#03071e");
+    p5.noStroke(); // Optimize by disabling strokes if not needed
+    p5.frameRate(30); // Limit to 30 FPS for better performance
 
-    cols = Math.floor(p5.windowWidth / scl);
-    rows = Math.floor(p5.windowHeight / scl);
-    console.log(rows, cols, "rows/cols");
-    // blobAr.map((point, i) => {
-    //   let angle = ((i * def) / Math.PI) * 2;
-    //   return (point = {
-    //     x: r * Math.cos(angle) + p5.windowWidth / 2,
-    //     y: r * Math.sin(angle) + p5.windowWidth / 2,
-    //     angle: angle,
-    //   });
-    // });
-    p5.background(100, 100, 100);
+    cols = Math.floor(p5.width / scl);
+    rows = Math.floor(p5.height / scl);
+
+    // Position the canvas absolutely and set z-index to -1
+    canvas.position(0, 0);
+    canvas.style("z-index", "-1");
+    canvas.style("position", "fixed"); // Ensures the canvas stays fixed during scroll
+    canvas.style("top", "0");
+    canvas.style("left", "0");
+    canvas.style("width", "100%");
+    canvas.style("height", "100%");
   };
 
   const draw = (p5) => {
     p5.background("#03071e");
     p5.fill("#f49d37");
-    // p5.ellipse(p5.mouseX, p5.mouseY, 600, 600);
 
     let yoff = 0;
 
@@ -52,95 +42,53 @@ function SpikeFlow() {
       let xoff = 0;
 
       for (let x = 0; x < cols + 1; x++) {
-        let index = (x + y * p5.windowHeight) * 4;
+        // Calculate noise value
+        const noiseVal = p5.noise(xoff, yoff, zoff);
+        const angle = noiseVal * p5.TWO_PI; // Convert noise to radians
 
-        let noise = p5.noise(xoff, yoff, zoff);
-        let mV = p5.createVector(p5.mouseX, p5.mouseY); //noise * (Math.PI / 180));
-        let bV = p5.createVector(x * scl, y * scl);
-        let angle = noise * 360;
-        angle = angle * (Math.PI / 180);
-        // v = p5.Vector.fromAngle(noise * (Math.PI / 180));
+        // Calculate positions
+        const posX = x * scl;
+        const posY = y * scl;
+
+        // Vector from mouse to current position
+        const dx = p5.mouseX - posX;
+        const dy = p5.mouseY - posY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Determine stroke color based on distance
+        let strokeColor;
+        if (distance > 300) {
+          strokeColor = "#9d0208"; // Farther away
+        } else if (distance > 200) {
+          strokeColor = "#d00000";
+        } else if (distance > 100) {
+          strokeColor = "#e85d04";
+        } else {
+          strokeColor = "#faa307"; // Closer
+        }
+
+        p5.stroke(strokeColor);
+        p5.push();
+        p5.translate(posX, posY);
+        p5.rotate(angle); // Rotate based on noise angle
+        p5.line(0, 0, 0, 20); // Shorter line for efficiency
+        p5.pop();
 
         xoff += increment;
-        p5.push();
-        p5.translate(x * scl, y * scl);
-        p5.rotate(Math.PI / 4);
-        let v = p5.createVector(Math.cos(angle), Math.sin(angle)); //noise * (Math.PI / 180));
-        let distance = p5.dist(mV.x, mV.y, x * scl, y * scl);
-
-        if (distance > 300) {
-          p5.fill("blue");
-          p5.stroke("#9d0208");
-          p5.rotate(v.heading());
-          p5.line(0, 0, 0, 30);
-          // } else if (distance > 250 && distance < 300) {
-          //   p5.stroke("#d00000");
-
-          //   let dV = mV.sub(bV).normalize();
-          //   // dV = dV / 1;
-          //   // let combV = dV.add(v);
-          //   // combV.mult(distance);
-          //   p5.rotate(dV.heading());
-
-          //   // p5.rect(0, 0, scl / 2, scl);
-
-          //   p5.line(0, 0, 0, 30);
-          // } else if (distance > 200 && distance < 250) {
-          //   p5.stroke("#e85d04");
-
-          //   let dV = mV.sub(bV).normalize();
-          //   // dV = dV / 1;
-          //   // let combV = dV.add(v);
-          //   // combV.mult(distance);
-          //   p5.rotate(dV.heading());
-          //   // p5.rect(0, 0, scl / 2, scl);
-
-          //   p5.line(0, 0, 0, 30);
-          // } else if (distance > 150 && distance < 200) {
-          //   p5.stroke("#faa307");
-
-          //   let dV = mV.sub(bV).normalize();
-          //   // dV = dV / 1;
-          //   // let combV = dV.add(v);
-          //   // combV.mult(distance);
-          //   p5.rotate(dV.heading());
-          //   // p5.rect(0, 0, scl / 2, scl);
-
-          //   p5.line(0, 0, 0, 30);
-        } else {
-          p5.stroke("#ffba08");
-
-          let dV = mV.sub(bV).normalize();
-          // dV = dV / 1;
-          dV.x = p5.map(distance, 0, 300, dV.x, v.x);
-          dV.y = p5.map(distance, 0, 300, dV.y, v.y);
-
-          // let combV = v.add(dv);
-          // combV.mult(distance);
-          p5.rotate(dV.heading());
-          // p5.rect(0, 0, scl / 2, scl);
-
-          p5.line(0, 0, 0, 30);
-        }
-        // console.log(v);
-
-        // p5.fill("#f22b29");
-        // p5.ellipse(0, 0, scl, scl / 2);
-        //  p5.rect(0, 0, scl / 2, scl);
-
-        p5.pop();
-        // p5.beginShape();
-        // blobAr.forEach((point) => {
-        //   p5.vertex(point.x + noise * 100, point.y + noise * 100);
-        // });
-
-        // p5.endShape();
       }
       yoff += increment;
-      zoff += 0.0001;
     }
+
+    zoff += 0.003; // Slightly increase for smoother animation
   };
-  return <Sketch setup={setup} draw={draw} />;
-}
+
+  const windowResized = (p5) => {
+    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+    cols = Math.floor(p5.width / scl);
+    rows = Math.floor(p5.height / scl);
+  };
+
+  return <Sketch setup={setup} draw={draw} windowResized={windowResized} />;
+};
 
 export default SpikeFlow;

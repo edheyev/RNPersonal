@@ -1,77 +1,48 @@
-import React from "react";
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
-  TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
-  WhatsappShareButton,
-  WorkplaceShareButton,
-  TwitterIcon,
-  EmailIcon,
-  LinkedinIcon,
-  FacebookIcon,
-} from "react-share";
-import { AiFillGithub } from "react-icons/ai";
-import { SiProcessingfoundation } from "react-icons/si";
+// src/components/SocMedBar.js
 
-function SocMedBar() {
+import React from "react";
+import { Box, IconButton } from "@mui/material";
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa"; // Example icons
+
+const SocMedBar = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <EmailShareButton
-        title={"email"}
-        url={"edheyev@gmail.com"}
-        hashtags={["hashtag1", "hashtag2"]}
-        style={{ padding: 10 }}
+    <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+      <IconButton
+        aria-label="GitHub"
+        href="https://github.com/edheyev"
+        target="_blank"
+        rel="noopener noreferrer"
+        color="primary"
       >
-        <EmailIcon size={32} round />
-      </EmailShareButton>
-      <FacebookShareButton
-        url={"https://www.facebook.com/big.green.owl/"}
-        style={{ padding: 10 }}
+        <FaGithub />
+      </IconButton>
+      <IconButton
+        aria-label="LinkedIn"
+        href="https://www.linkedin.com/in/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer"
+        color="primary"
       >
-        <FacebookIcon size={32} round />
-      </FacebookShareButton>
-      <LinkedinShareButton
-        url={"https://www.linkedin.com/in/edward-heywood-everett-b8b50422a/"}
-        style={{ padding: 10 }}
+        <FaLinkedin />
+      </IconButton>
+      <IconButton
+        aria-label="Twitter"
+        href="https://twitter.com/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer"
+        color="primary"
       >
-        <LinkedinIcon size={32} round />
-      </LinkedinShareButton>
-      <TwitterShareButton
-        title={"twitter"}
-        url={"https://twitter.com/edheyev"}
-        hashtags={["hashtag1", "hashtag2"]}
-        style={{ padding: 10 }}
+        <FaTwitter />
+      </IconButton>
+      <IconButton
+        aria-label="Email"
+        href="mailto:your.email@example.com"
+        color="primary"
       >
-        <TwitterIcon size={32} round />
-      </TwitterShareButton>
-      <a href="https://github.com/edheyev" style={{ padding: 10 }}>
-        <AiFillGithub size={32} />
-      </a>
-      <a href="https://openprocessing.org/user/166638" style={{ padding: 10 }}>
-        <SiProcessingfoundation size={32} />
-      </a>
-    </div>
+        <FaEnvelope />
+      </IconButton>
+    </Box>
   );
-}
+};
 
 export default SocMedBar;

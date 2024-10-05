@@ -1,36 +1,44 @@
-import React from "react";
+// src/pages/Science.js
 
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    padding: "20px",
-    margin: "15px",
-    backgroundColor: "#F5F5F5",
-    borderRadius: "15px",
-    boxShadow: "0px 0px 5px 2px rgba(0,0,0,0.1)",
-  },
-  header: {
-    borderBottom: "1px solid #ccc",
-    paddingBottom: "10px",
-    marginBottom: "20px",
-  },
-  publication: {
-    marginBottom: "15px",
-  },
-  links: {
-    textDecoration: "underline",
-    color: "#007bff",
-  },
-};
+import React from "react";
+import {
+  Box,
+  Typography,
+  Link as MuiLink,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
 
 const Science = () => {
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>
-        <h1>Science</h1>
-      </div>
-      <p>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        p: 4,
+        m: { xs: 2, md: 4 },
+        backgroundColor: "background.paper",
+        borderRadius: 2,
+        boxShadow: 1,
+      }}
+    >
+      {/* Header */}
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          pb: 1,
+          mb: 3,
+        }}
+      >
+        <Typography variant="h4" component="h1" color="text.primary">
+          Science
+        </Typography>
+      </Box>
+
+      {/* Introduction Paragraph */}
+      <Typography variant="body1" color="text.secondary" paragraph>
         I am interested in how space is represented in memory and how we can use
         innovative research techniques and technologies to investigate this. The
         interaction of egocentric and allocentric spatial representations has
@@ -38,45 +46,108 @@ const Science = () => {
         technology and psychophysical methods to investigate these topics from a
         cognitive psychological perspective. My PhD thesis, which focuses on
         these subjects, is available online{" "}
-        <a style={styles.links} href="https://etheses.whiterose.ac.uk/29943/">
+        <MuiLink
+          href="https://etheses.whiterose.ac.uk/29943/"
+          target="_blank"
+          rel="noopener noreferrer"
+          color="secondary.main"
+          underline="hover"
+        >
           here.
-        </a>
-      </p>
-      <div style={styles.header}>
-        <h2>Publications</h2>
-      </div>
-      <ul>
-        <li style={styles.publication}>
-          Heywood-Everett, E., Baker, D., & Hartley, T. (2021). Testing the
-          precision of spatial memory representations using a virtual
-          change-detection task: Effects of viewpoint change. Journal of
-          Cognitive Psychology.
-        </li>
-        <li style={styles.publication}>
-          Negen, J., Heywood‐Everett, E., Roome, H. E., & Nardini, M. (2018).
-          Development of allocentric spatial recall from new viewpoints in
-          virtual reality. Developmental science, 21(1), e12496.
-        </li>
-      </ul>
-      <div style={styles.header}>
-        <h2>Links</h2>
-      </div>
-      <ul>
-        <li style={styles.publication}>
-          <a style={styles.links} href="osf.io/wkupb">
-            Open science framework repos and profile.
-          </a>
-        </li>
-        <li style={styles.publication}>
-          <a
-            style={styles.links}
-            href="https://scholar.google.com/citations?user=KnAA51gAAAAJ&hl=en&oi=sra"
-          >
-            Google Scholar profile
-          </a>
-        </li>
-      </ul>
-    </div>
+        </MuiLink>
+      </Typography>
+
+      {/* Publications Header */}
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          pb: 1,
+          mb: 3,
+        }}
+      >
+        <Typography variant="h5" component="h2" color="text.primary">
+          Publications
+        </Typography>
+      </Box>
+
+      {/* Publications List */}
+      <List>
+        <ListItem disableGutters>
+          <ListItemText
+            primary={
+              <Typography variant="body1" color="text.secondary">
+                Heywood-Everett, E., Baker, D., & Hartley, T. (2021). Testing
+                the precision of spatial memory representations using a virtual
+                change-detection task: Effects of viewpoint change. Journal of
+                Cognitive Psychology.
+              </Typography>
+            }
+          />
+        </ListItem>
+        <ListItem disableGutters>
+          <ListItemText
+            primary={
+              <Typography variant="body1" color="text.secondary">
+                Negen, J., Heywood‐Everett, E., Roome, H. E., & Nardini, M.
+                (2018). Development of allocentric spatial recall from new
+                viewpoints in virtual reality. Developmental science, 21(1),
+                e12496.
+              </Typography>
+            }
+          />
+        </ListItem>
+      </List>
+
+      {/* Links Header */}
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          pb: 1,
+          mt: 4,
+          mb: 3,
+        }}
+      >
+        <Typography variant="h5" component="h2" color="text.primary">
+          Links
+        </Typography>
+      </Box>
+
+      {/* Links List */}
+      <List>
+        <ListItem disableGutters>
+          <ListItemText
+            primary={
+              <MuiLink
+                href="https://osf.io/wkupb"
+                target="_blank"
+                rel="noopener noreferrer"
+                color="secondary.main"
+                underline="hover"
+              >
+                Open Science Framework Repositories and Profile
+              </MuiLink>
+            }
+          />
+        </ListItem>
+        <ListItem disableGutters>
+          <ListItemText
+            primary={
+              <MuiLink
+                href="https://scholar.google.com/citations?user=KnAA51gAAAAJ&hl=en&oi=sra"
+                target="_blank"
+                rel="noopener noreferrer"
+                color="secondary.main"
+                underline="hover"
+              >
+                Google Scholar Profile
+              </MuiLink>
+            }
+          />
+        </ListItem>
+      </List>
+    </Box>
   );
 };
 

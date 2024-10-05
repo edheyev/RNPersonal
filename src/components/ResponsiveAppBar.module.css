@@ -1,0 +1,18 @@
+.activeLink {
+  border-bottom: 2px solid var(--secondary-main); /* Uses CSS variable for theme's secondary color */
+}
+.nav-container {
+  position: relative;
+  height: 60px; /* Match the canvas height */
+  width: 100%;
+  overflow: hidden;
+}
+
+.nav-links {
+  position: relative;
+  z-index: 3; /* Higher than the canvas */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}

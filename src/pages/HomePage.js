@@ -1,25 +1,69 @@
-import React from "react";
-import BckgrndSketch from "../components/BckgrndSketch";
-import Flow from "../components/Flow";
-import FlowGarden from "../components/FlowGarden";
-import NavList from "../components/NavList";
-import SocMedBar from "../components/SocMedBar";
-import SpikeFlow from "../components/SpikeFlow";
-import styles from "./HomePage.module.css";
+// src/pages/Home.js
 
-const HomePage = () => {
+import React from "react";
+import { Box, Typography } from "@mui/material";
+import SpikeFlow from "../components/SpikeFlow";
+
+const Home = () => {
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.textShad}>
-          My name is Ed. I like coding, science, and art.
-        </h1>
-      </header>
-      <main className={styles.mainContent}>
-        <SpikeFlow />
-      </main>
-    </div>
+    <>
+      <SpikeFlow />
+      <Box
+        sx={{
+          p: 4,
+          minHeight: "80vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Typography
+          variant="h1"
+          sx={{ mb: 2, color: "text.primary", textAlign: "center" }}
+        >
+          Hi, My name is Ed.
+        </Typography>
+        <Typography
+          variant="h3"
+          sx={{
+            mb: 4,
+            color: "text.secondary",
+            textAlign: "center",
+            maxWidth: 600,
+          }}
+        >
+          I blend coding, science, and art.
+        </Typography>
+        <Typography
+          variant="h8"
+          sx={{
+            mb: 4,
+            color: "text.secondary",
+            textAlign: "center",
+            maxWidth: 600,
+          }}
+        >
+          Please explore!
+        </Typography>
+        {/* <Button
+        component={Link}
+        to="/projects"
+        variant="contained"
+        color="secondary"
+        sx={{
+          paddingX: 4,
+          paddingY: 1.5,
+          fontSize: "1.2rem",
+          borderRadius: "8px",
+          "&:hover": { backgroundColor: "secondary.dark" },
+        }}
+      >
+        View Projects
+      </Button> */}
+      </Box>
+    </>
   );
 };
 
-export default HomePage;
+export default Home;

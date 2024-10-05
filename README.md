@@ -1,3 +1,8 @@
+# TODO
+
+- connect and prune obsidian and get it to auto update somehow
+- do and add better projects
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

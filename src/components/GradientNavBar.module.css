@@ -1,0 +1,11 @@
+/* src/components/GradientNavBar.module.css */
+
+.gradientNavBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Match AppBar height */
+  z-index: 1; /* Positioned behind ParticleNavBar */
+  pointer-events: none; /* Allow clicks to pass through */
+}
