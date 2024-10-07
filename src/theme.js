@@ -11,20 +11,20 @@ import "@fontsource/roboto/700.css";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#3A3F52",
-      contrastText: "#EAAC8B", // Text color
+      main: "#C09935",
+      contrastText: "#F2E8CF", // Text color
     },
     secondary: {
-      main: "#6D597A", // Accent color (e.g., red)
-      contrastText: "#E56B6F",
+      main: "#6A994E", // Accent color (e.g., red)
+      contrastText: "#F2E8CF",
     },
     background: {
       default: "#355070", // Light background for content areas
       paper: "#2d3b4d", // White background for cards, etc.
     },
     text: {
-      primary: "#EAAC8B",
-      secondary: "#E56B6F",
+      primary: "#F2E8CF",
+      secondary: "#F2E8CF",
     },
   },
   typography: {
